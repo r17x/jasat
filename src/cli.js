@@ -6,7 +6,8 @@ const glob = promisify(require("glob"));
 const fs = require("fs/promises");
 const crypto = require("crypto");
 const { transmute, traverse } = require("equivalent-exchange");
-const TARGET_PATTERN = "**/*.js";
+const TARGET_PATTERN = "**/*.{js,jsx,mjs,cjs,ts,tsx}";
+const IGNORE_PATTERN = [`**/node_modules/${TARGET_PATTERN}`];
 
 const run = () => {
 	const meowOptions = {
@@ -65,20 +66,22 @@ const run = () => {
 			[true]: noOp,
 			[Boolean(transform)]: async () => {
 				const cwd = flags.cwd || process.cwd();
-				const targetFiles = await glob(path.join(cwd, TARGET_PATTERN)).then(
-					(sources) =>
-						sources.map(async (source) => {
-							const content = await fs.readFile(source, "utf8");
-							const newContent = applyTransform(content, transform, ...params);
-							const modified = isModifiedContent(content, newContent) ? 1 : 0;
-							return {
-								location: source,
-								content,
-								newContent,
-								transform: pathToBasename(transform),
-								modified,
-							};
-						})
+				const targetFiles = await glob(TARGET_PATTERN, {
+					cwd,
+					ignore: IGNORE_PATTERN,
+				}).then((sources) =>
+					sources.map(async (source) => {
+						const content = await fs.readFile(source, "utf8");
+						const newContent = applyTransform(content, transform, ...params);
+						const modified = isModifiedContent(content, newContent) ? 1 : 0;
+						return {
+							location: source,
+							content,
+							newContent,
+							transform: pathToBasename(transform),
+							modified,
+						};
+					})
 				);
 
 				return Promise.all(targetFiles)

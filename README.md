@@ -1,6 +1,15 @@
 <p align="center">
   <img alt="jasat overview" src="https://raw.githubusercontent.com/ri7nz/jasat/main/.github/docs/jasat.gif"/>
-  <label>Tools for code moderation, transformation, or use for maintain JavaScript stuff related.</label>
+  <label><strong>Tools for code moderation, transformation, or use for maintain JavaScript stuff related.</strong></label>
+</p>
+
+<p align="center">
+  <a alt="CI Release status" target="_blank" href="https://github.com/ri7nz/jasat/actions/workflows/release.yml">
+    <img alt="CI Release status" src="https://github.com/ri7nz/jasat/actions/workflows/release.yml/badge.svg" />
+  </a>  • 
+  <a alt="NPM jasat version" target="_blank" href="https://npmjs.com/package/jasat">
+    <img alt="NPM jasat version" src="https://badgen.net/npm/v/jasat?color=green" />
+  </a>
 </p>
 
 <p align="center">
@@ -13,8 +22,6 @@
 </p>
 
 ## Use case
-
-[![Node.js CI status](https://github.com/git@github.com:ri7nz/jasat/workflows/Node.js%20CI/badge.svg)](https://github.com/git@github.com:ri7nz/jasat/actions)
 
 - find and replace some code.
 - remove some code (like `console.log`).

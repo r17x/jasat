@@ -1,7 +1,10 @@
 module.exports = function () {
 	return {
 		CallExpression(path) {
-			if (path.node.callee.object.name === "console") {
+			if (
+				path.node.callee.object &&
+				path.node.callee.object.name === "console"
+			) {
 				path.remove();
 			}
 		},
