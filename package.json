@@ -10,12 +10,31 @@
     "jasat": "./jasat"
   },
   "files": [
-    "src",
-    "bin"
+    "src"
   ],
   "dependencies": {
     "equivalent-exchange": "^1",
-    "meow": "^5",
-    "glob": "^7"
+    "glob": "^7",
+    "meow": "^5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "16.2.1",
+    "@commitlint/config-conventional": "16.2.1",
+    "@commitlint/prompt": "16.2.1",
+    "@semantic-release/changelog": "semantic-release/changelog",
+    "@semantic-release/git": "10.0.1",
+    "@semrel-extra/npm": "1.2.0",
+    "commitlint-config-squash-pr": "1.1.0",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": ">=2",
+    "semantic-release": "19.0.2"
+  },
+  "scripts": {
+    "format": "prettier --loglevel warn --write \"**/*.{js,css,md}\"",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
