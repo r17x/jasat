@@ -12,15 +12,17 @@
   <a href="#License">License</a>
 </p>
 
-
 ## Use case
 
-* find and replace some code.
-* remove some code (like `console.log`).
+[![Node.js CI status](https://github.com/git@github.com:ri7nz/jasat/workflows/Node.js%20CI/badge.svg)](https://github.com/git@github.com:ri7nz/jasat/actions)
+
+- find and replace some code.
+- remove some code (like `console.log`).
 
 ## Usage
 
 ### Using with `npx`
+
 ```console
 
 npx jasat <TRANSFORM> [OPTIONS]
@@ -30,6 +32,7 @@ npx jasat <TRANSFORM> [OPTIONS]
 ### Using as development dependencies
 
 #### add in `devDependencies`
+
 ```console
 
 yarn add -D jasat
@@ -47,7 +50,7 @@ yarn jasat <TRANSFORM> [OPTIONS]
 ### Transforms
 
 | Name                    | OPTIONS     |
-| ---                     | ---         |
+| ----------------------- | ----------- |
 | `import-source-replace` | "FROM" "TO" |
 | `remove-console`        | -           |
 
@@ -80,16 +83,19 @@ npx jasat import-source-replace "react" "preact" --write // write to system or t
 
 ## Special Thanks
 
-* [**equivalent-exchange**](https://github.com/suchipi/equivalent-exchange) - Transmute one JavaScript string into another by way of mutating its AST. Powered by babel and recast. 
+- [**equivalent-exchange**](https://github.com/suchipi/equivalent-exchange) - Transmute one JavaScript string into another by way of mutating its AST. Powered by babel and recast.
 
 ## Alternative
 
-* [**jscodeshift**](https://github.com/facebook/jscodeshift) - A JavaScript codemod toolkit.
-* [**comby**](https://github.com/comby-tools/comby) - A tool for structural code search and replace that supports ~every language. 
+- [**jscodeshift**](https://github.com/facebook/jscodeshift) - A JavaScript codemod toolkit.
+- [**comby**](https://github.com/comby-tools/comby) - A tool for structural code search and replace that supports ~every language.
 
 ## Contribution
+
 ### Making pull requests
-* Use [**conventional-commits**](https://www.conventionalcommits.org/en/v1.0.0/) before make a pull request.
+
+- Use [**conventional-commits**](https://www.conventionalcommits.org/en/v1.0.0/) before make a pull request.
 
 ## License
+
 **MIT**
