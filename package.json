@@ -1,7 +1,7 @@
 {
   "name": "jasat",
   "description": "Tools for code moderation, transformation, or use for maintain JavaScript stuff related.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "homepage": "https://github.com/ri7nz/jasat",
   "repository": "git@github.com:ri7nz/jasat",
   "author": "ri7nz <ri7nz@evilfactory.id>",
