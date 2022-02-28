@@ -15,3 +15,20 @@
 ### Features
 
 - add another support by extensions ([7d34050](https://github.com/ri7nz/jasat/commit/7d340508023f93c5365eae21666cff9a50635fd7))
+
+# [0.0.1](https://github.com/ri7nz/jasat/commit/0fa0d3cc5851104e04915ce390a7b19f280d731f) (2022-02-25)
+
+### Features
+
+#### find and replace some import `source`.
+
+```console
+npx jasat import-source-replace "react" "preact" // dry-run
+npx jasat import-source-replace "react" "preact" --write // write to system or target files
+```
+
+### remove console statements.
+
+```console
+npx jasat remove-console --write // write to system or target files
+```
