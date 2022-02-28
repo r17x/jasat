@@ -71,21 +71,21 @@ const run = () => {
 					realpath: true,
 					cache: true,
 					ignore: IGNORE_PATTERN,
-				})
-					.then((sources) =>
-						sources.map(async (source) => {
-							const content = await fs.readFile(source, "utf8");
-							const newContent = applyTransform(content, transform, ...params);
-							const modified = isModifiedContent(content, newContent) ? 1 : 0;
-							return {
-								location: source,
-								content,
-								newContent,
-								transform: pathToBasename(transform),
-								modified,
-							};
-						})
-					)
+				}).then((sources) =>
+					sources.map(async (source) => {
+						const content = await fs.readFile(source, "utf8");
+						const newContent = applyTransform(content, transform, ...params);
+						const modified = isModifiedContent(content, newContent) ? 1 : 0;
+						return {
+							location: source,
+							content,
+							newContent,
+							transform: pathToBasename(transform),
+							modified,
+						};
+					})
+				);
+				return Promise.all(targetFiles)
 					.then((files) => {
 						if (flags.write) {
 							files.forEach((file) =>
@@ -95,16 +95,16 @@ const run = () => {
 							);
 						}
 						return files;
-					});
-				return Promise.all(targetFiles).then((files) => {
-					const allFiles = files.length;
-					const modified = files.reduce((a, f) => f.modified + a, 0);
-					process.stdout.write(`
+					})
+					.then((files) => {
+						const allFiles = files.length;
+						const modified = files.reduce((a, f) => f.modified + a, 0);
+						process.stdout.write(`
 ${chalk.blue("All files:")} ${chalk.bold.blue(allFiles)}
 ${chalk.yellow(flags.write ? "Modified:" : "Found:")} ${chalk.bold.yellow(
-						modified
-					)}`);
-				});
+							modified
+						)}`);
+					});
 			},
 		}.true();
 	};
