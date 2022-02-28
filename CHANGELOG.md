@@ -1,3 +1,9 @@
+## [0.1.2](https://github.com/ri7nz/jasat/compare/v0.1.1...v0.1.2) (2022-02-28)
+
+### Bug Fixes
+
+- didn't modified the target file ([194424a](https://github.com/ri7nz/jasat/commit/194424a582fed7b70dbb60a4c6f4519837681321))
+
 ## [0.1.1](https://github.com/ri7nz/jasat/compare/v0.1.0...v0.1.1) (2022-02-28)
 
 ### Bug Fixes
